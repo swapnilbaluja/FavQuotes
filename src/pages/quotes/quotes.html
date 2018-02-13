@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{groupQuote.category|uppercase}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card *ngFor="let q of groupQuote.quotes; let i = index " >
+  <ion-card-header>
+    #{{i+1}}
+  </ion-card-header>
+  <ion-card-content>
+    <p >{{q.text}}<p>
+    <p text-right>-{{q.person}}</p>
+  </ion-card-content>
+  <ion-row>
+  <ion-col text-right>
+  <button ion-button outline small (click)="uncall(q)" color="danger" *ngIf="isFav(q)">UnFavroite</button>
+   <button ion-button  small (click)="call(q)"  *ngIf="!isFav(q)">Favroite</button>
+  </ion-col>
+  </ion-row>
+</ion-card>
+
+</ion-content>
